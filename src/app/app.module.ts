@@ -4,6 +4,8 @@ import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
  import { ToastrModule } from 'ngx-toastr';
+ import { MaterialModule } from "./material/material.module";
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +24,9 @@ import { GuidesComponent } from './guides/guides.component';
 import { GuideComponent } from './guides/guide/guide.component';
 import { GuideListComponent } from './guides/guide-list/guide-list.component';
 import { VehiclesComponent } from './vehicles/vehicles.component';
+import { VehicleComponent } from './vehicles/vehicle/vehicle.component';
+import { VehicleListComponent } from './vehicles/vehicle-list/vehicle-list.component';
+import { VehicleService } from './shared/vehicle.service';
 
 
 
@@ -46,6 +51,9 @@ import { VehiclesComponent } from './vehicles/vehicles.component';
     GuideComponent,
     GuideListComponent,
     VehiclesComponent,
+    VehicleComponent,
+    VehicleListComponent,
+    
  
 
 
@@ -60,11 +68,13 @@ import { VehiclesComponent } from './vehicles/vehicles.component';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MaterialModule,
     ToastrModule.forRoot()
 
 
   ],
-  providers: [EmployeeService],
-  bootstrap: [AppComponent]
+  providers: [EmployeeService , VehicleService],
+  bootstrap: [AppComponent],
+  entryComponents:[VehicleComponent]
 })
 export class AppModule { }
